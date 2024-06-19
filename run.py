@@ -6,6 +6,7 @@ app = create_app()
 def add_csp_headers(response):
     # vulnerability: Broken Access Control
     response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
     # vulnerability: Security Misconfiguration
     response.headers['Content-Security-Policy'] = "script-src 'self' 'unsafe-inline'"
     return response
